@@ -1,58 +1,66 @@
-# Changelog
+> 🌐 本文档由 [tailwindlabs/tailwindcss](https://github.com/tailwindlabs/tailwindcss) 翻译，英文原版见原项目。
+>
+> ℹ️ 本文件篇幅极大，此处仅翻译核心章节（未发布版本及最新发布版 4.3.3）；更早版本的更新记录保留英文原文，请查阅原版 CHANGELOG。
 
-All notable changes to this project will be documented in this file.
+# 更新日志
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+本项目的所有重要变更均记录于此文件。
 
-## [Unreleased]
+格式基于 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)，
+版本管理遵循 [语义化版本（Semantic Versioning）](https://semver.org/spec/v2.0.0.html)。
 
-### Added
+## [未发布（Unreleased）]
 
-- Add `@tailwindcss/turbopack` package to run Tailwind CSS with Next.js ([20367](https://github.com/tailwindlabs/tailwindcss/pull/20367))
+### 新增
 
-### Fixed
+- 新增 `@tailwindcss/turbopack` 包，用于在 Next.js 中运行 Tailwind CSS（[20367](https://github.com/tailwindlabs/tailwindcss/pull/20367)）
 
-- Ensure watch mode detects changes to symlinked `@source` files whose real paths aren't otherwise scanned ([#20356](https://github.com/tailwindlabs/tailwindcss/pull/20356))
-- Ensure custom variants using `@scope` wrap the generated utilities instead of nesting inside them ([#20369](https://github.com/tailwindlabs/tailwindcss/pull/20369))
-- Fix flattening of `@scope` at-rules ([#20369](https://github.com/tailwindlabs/tailwindcss/pull/20369))
-- Fix standalone declarations in `@scope`, wrap them in `:where(:scope)` ([#20369](https://github.com/tailwindlabs/tailwindcss/pull/20369))
-- Always emit a space for empty fallback values in CSS variables (e.g. `var(--tw-blur,)` → `var(--tw-blur, )`) ([#20373](https://github.com/tailwindlabs/tailwindcss/pull/20373))
-- Canonicalization: convert arbitrary breakpoint and container query variants to named equivalents (e.g. `max-[64rem]` → `max-lg`) ([#20380](https://github.com/tailwindlabs/tailwindcss/pull/20380))
-- Prevent `@tailwindcss/vite` from crashing on every edit under Vite's experimental `bundledDev` mode ([#20379](https://github.com/tailwindlabs/tailwindcss/pull/20379))
-- Ensure `@tailwindcss/oxide` falls back to WASM on platforms without native bindings ([#20383](https://github.com/tailwindlabs/tailwindcss/pull/20383))
-- Detect classes in Ruby percent literals using angle brackets or custom delimiters (e.g. `%w<flex>`, `%w|flex|`), including in Slim and Haml templates ([#20387](https://github.com/tailwindlabs/tailwindcss/pull/20387))
-- Preserve whitespace in `--default(…)` values in custom functional utilities (e.g. `--default(box alphabetic)` no longer becomes `boxalphabetic`) ([#20392](https://github.com/tailwindlabs/tailwindcss/pull/20392))
-- Don't scan gitignored directories (e.g. `node_modules` and `.git`) when the project uses a safelist-style `.gitignore` (e.g. `/*` followed by `!/…` negations) ([#20397](https://github.com/tailwindlabs/tailwindcss/pull/20397))
-- Ensure root `theme('…')` namespace lookups in JavaScript plugins and config files return the full namespace object instead of the value of its `DEFAULT` key ([#20399](https://github.com/tailwindlabs/tailwindcss/pull/20399))
-- Skip ignored directories entirely when computing watch globs (`scanner.globs`), instead of walking their full contents on every rebuild ([#20408](https://github.com/tailwindlabs/tailwindcss/pull/20408))
-- Oxide: drop invalid UTF-8 candidates ([#20389](https://github.com/tailwindlabs/tailwindcss/pull/20389))
-- `@tailwindcss/vite` no longer forces a full page reload for external files (e.g.: `.php` files) ([#20414](https://github.com/tailwindlabs/tailwindcss/issues/20414))
-- Canonicalization: don't merge utilities that reference different theme variables set to CSS-wide keywords like `unset` ([#20417](https://github.com/tailwindlabs/tailwindcss/pull/20417))
-- Don't generate utilities when a modifier is used that would otherwise be silently ignored (e.g. `rounded-sm/[5]`, `shadow-sm/foo`, `stroke-2/50`) ([#20419](https://github.com/tailwindlabs/tailwindcss/pull/20419))
-- Only normalize top-level `and`, `or`, and `not` keywords in `supports-[…]` variants (e.g. `selector(a: not (.foo))` → `selector(a:not(.foo))`) ([#20420](https://github.com/tailwindlabs/tailwindcss/pull/20420))
-- Don't warn about Angular's `::ng-deep` and `:host-context()` when optimizing CSS ([#20434](https://github.com/tailwindlabs/tailwindcss/pull/20434))
-- Don't generate CSS for candidates containing an empty additional modifier (e.g. `bg-red-500/50/` and `group-hover/foo//bar:flex`) ([#20466](https://github.com/tailwindlabs/tailwindcss/pull/20466))
+### 修复
+
+- 确保 watch 模式能够检测到软链接 `@source` 文件的变更，即使其真实路径不在扫描范围内（[#20356](https://github.com/tailwindlabs/tailwindcss/pull/20356)）
+- 确保使用 `@scope` 的自定义变体包裹生成的工具类，而不是嵌套在其中（[#20369](https://github.com/tailwindlabs/tailwindcss/pull/20369)）
+- 修复 `@scope` at-rule 的展平处理（[#20369](https://github.com/tailwindlabs/tailwindcss/pull/20369)）
+- 修复 `@scope` 中的独立声明，将其包裹在 `:where(:scope)` 中（[#20369](https://github.com/tailwindlabs/tailwindcss/pull/20369)）
+- CSS 变量的空回退值始终输出一个空格（例如 `var(--tw-blur,)` → `var(--tw-blur, )`）（[#20373](https://github.com/tailwindlabs/tailwindcss/pull/20373)）
+- 规范化（Canonicalization）：将任意断点和容器查询变体转换为具名等价形式（例如 `max-[64rem]` → `max-lg`）（[#20380](https://github.com/tailwindlabs/tailwindcss/pull/20380)）
+- 防止 `@tailwindcss/vite` 在 Vite 实验性的 `bundledDev` 模式下每次编辑都崩溃（[#20379](https://github.com/tailwindlabs/tailwindcss/pull/20379)）
+- 确保 `@tailwindcss/oxide` 在缺少原生绑定的平台上回退到 WASM 实现（[#20383](https://github.com/tailwindlabs/tailwindcss/pull/20383)）
+- 支持识别 Ruby 尖括号或自定义分隔符百分比字面量中的类名（例如 `%w<flex>`、`%w|flex|`），包括 Slim 和 Haml 模板（[#20387](https://github.com/tailwindlabs/tailwindcss/pull/20387)）
+- 保留自定义函数式工具类中 `--default(…)` 值里的空白字符（例如 `--default(box alphabetic)` 不再被压缩成 `boxalphabetic`）（[#20392](https://github.com/tailwindlabs/tailwindcss/pull/20392)）
+- 当项目使用 safelist 风格的 `.gitignore`（例如 `/*` 后跟 `!/…` 取反规则）时，不再扫描被 git 忽略的目录（例如 `node_modules` 和 `.git`）（[#20397](https://github.com/tailwindlabs/tailwindcss/pull/20397)）
+- 确保 JavaScript 插件和配置文件中根级 `theme('…')` 命名空间查询返回完整的命名空间对象，而不是其 `DEFAULT` 键的值（[#20399](https://github.com/tailwindlabs/tailwindcss/pull/20399)）
+- 计算 watch glob（`scanner.globs`）时完全跳过被忽略的目录，而不是在每次重新构建时遍历其全部内容（[#20408](https://github.com/tailwindlabs/tailwindcss/pull/20408)）
+- Oxide：丢弃无效的 UTF-8 候选类名（[#20389](https://github.com/tailwindlabs/tailwindcss/pull/20389)）
+- `@tailwindcss/vite` 不再为外部文件（例如 `.php` 文件）强制触发整页刷新（[#20414](https://github.com/tailwindlabs/tailwindcss/issues/20414)）
+- 规范化：不合并引用了不同主题变量且变量值设为 `unset` 等 CSS 全局关键字的工具类（[#20417](https://github.com/tailwindlabs/tailwindcss/pull/20417)）
+- 当使用的修饰符会被静默忽略时，不再生成对应的工具类（例如 `rounded-sm/[5]`、`shadow-sm/foo`、`stroke-2/50`）（[#20419](https://github.com/tailwindlabs/tailwindcss/pull/20419)）
+- 在 `supports-[…]` 变体中仅规范化顶层的 `and`、`or`、`not` 关键字（例如 `selector(a: not (.foo))` → `selector(a:not(.foo))`）（[#20420](https://github.com/tailwindlabs/tailwindcss/pull/20420)）
+- 优化 CSS 时不再对 Angular 的 `::ng-deep` 和 `:host-context()` 发出警告（[#20434](https://github.com/tailwindlabs/tailwindcss/pull/20434)）
+- 不为包含空附加修饰符的候选类名生成 CSS（例如 `bg-red-500/50/` 和 `group-hover/foo//bar:flex`）（[#20466](https://github.com/tailwindlabs/tailwindcss/pull/20466)）
 
 ## [4.3.3] - 2026-07-16
 
-### Fixed
+### 修复
 
-- Support `--watch --poll[=ms]` in `@tailwindcss/cli` when filesystem events are unreliable or unavailable ([#20297](https://github.com/tailwindlabs/tailwindcss/pull/20297))
-- Canonicalization: match arbitrary hex colors against theme colors case-insensitively (e.g. `bg-[#fff]` and `bg-[#FFF]` → `bg-white`) ([#20298](https://github.com/tailwindlabs/tailwindcss/pull/20298))
-- Prevent Preflight from overriding Firefox's native `iframe:focus-visible` outline styles ([#20292](https://github.com/tailwindlabs/tailwindcss/pull/20292))
-- Ensure `theme('colors.foo')` in JS plugins resolves correctly when both `--color-foo` and `--color-foo-bar` exist ([#20299](https://github.com/tailwindlabs/tailwindcss/pull/20299))
-- Ensure fractional opacity modifiers work with named shadow sizes like `shadow-sm/12.5`, `text-shadow-sm/12.5`, `drop-shadow-sm/12.5`, and `inset-shadow-sm/12.5` ([#20302](https://github.com/tailwindlabs/tailwindcss/pull/20302))
-- Parse selectors like `[data-foo]div` as two selectors instead of one ([#20303](https://github.com/tailwindlabs/tailwindcss/pull/20303))
-- Ensure `@tailwindcss/postcss` rebuilds when a preprocessor like Sass changes the input CSS without changing the input file on disk ([#20310](https://github.com/tailwindlabs/tailwindcss/pull/20310))
-- Ensure CSS nesting is handled even when Lightning CSS isn't run, such as in `@tailwindcss/browser` and Tailwind Play ([#20124](https://github.com/tailwindlabs/tailwindcss/pull/20124))
-- Prevent achromatic theme colors from shifting hue when mixed in polar color spaces like `oklch` ([#20314](https://github.com/tailwindlabs/tailwindcss/pull/20314))
-- Ensure `--spacing(0)` is optimized to `0px` instead of `0` so it remains a `<length>` when used in `calc(…)` ([#20319](https://github.com/tailwindlabs/tailwindcss/pull/20319))
-- Load `@parcel/watcher` only when needed in `@tailwindcss/cli --watch` mode, so one-off builds and `--watch --poll` work when `@parcel/watcher` can't be loaded ([#20325](https://github.com/tailwindlabs/tailwindcss/pull/20325))
-- Use explicit platform fonts instead of `system-ui` and `ui-sans-serif` so CJK text respects the page's `lang` attribute on Windows ([#20318](https://github.com/tailwindlabs/tailwindcss/pull/20318))
-- Prevent `@tailwindcss/upgrade` from rewriting ignored files when run from a subdirectory ([#20329](https://github.com/tailwindlabs/tailwindcss/pull/20329))
-- Ensure earlier `@source` rules pointing to nested files are scanned when later `@source` rules point to files in parent folders ([#20335](https://github.com/tailwindlabs/tailwindcss/pull/20335))
-- Prevent `@tailwindcss/vite` from triggering full page reloads when scanned files are processed by Vite but haven't been loaded as modules yet ([#20336](https://github.com/tailwindlabs/tailwindcss/pull/20336))
+- 当文件系统事件不可靠或不可用时，`@tailwindcss/cli` 支持 `--watch --poll[=ms]` 轮询模式（[#20297](https://github.com/tailwindlabs/tailwindcss/pull/20297)）
+- 规范化：任意十六进制颜色与主题颜色的匹配不再区分大小写（例如 `bg-[#fff]` 和 `bg-[#FFF]` → `bg-white`）（[#20298](https://github.com/tailwindlabs/tailwindcss/pull/20298)）
+- 防止 Preflight 覆盖 Firefox 原生的 `iframe:focus-visible` 轮廓样式（[#20292](https://github.com/tailwindlabs/tailwindcss/pull/20292)）
+- 当 `--color-foo` 与 `--color-foo-bar` 同时存在时，确保 JS 插件中的 `theme('colors.foo')` 能正确解析（[#20299](https://github.com/tailwindlabs/tailwindcss/pull/20299)）
+- 确保小数形式的透明度修饰符可与具名阴影尺寸搭配使用，如 `shadow-sm/12.5`、`text-shadow-sm/12.5`、`drop-shadow-sm/12.5` 和 `inset-shadow-sm/12.5`（[#20302](https://github.com/tailwindlabs/tailwindcss/pull/20302)）
+- 将 `[data-foo]div` 这类选择器解析为两个选择器，而不是一个（[#20303](https://github.com/tailwindlabs/tailwindcss/pull/20303)）
+- 当 Sass 等预处理器修改了输入 CSS 但磁盘上的输入文件未变化时，确保 `@tailwindcss/postcss` 仍会重新构建（[#20310](https://github.com/tailwindlabs/tailwindcss/pull/20310)）
+- 即使未运行 Lightning CSS（例如在 `@tailwindcss/browser` 和 Tailwind Play 中）也能正确处理 CSS 嵌套（[#20124](https://github.com/tailwindlabs/tailwindcss/pull/20124)）
+- 防止消色差主题颜色在 `oklch` 等极坐标色彩空间中混合时发生色相偏移（[#20314](https://github.com/tailwindlabs/tailwindcss/pull/20314)）
+- 确保 `--spacing(0)` 被优化为 `0px` 而非 `0`，使其在 `calc(…)` 中仍保持 `<length>` 类型（[#20319](https://github.com/tailwindlabs/tailwindcss/pull/20319)）
+- `@tailwindcss/cli --watch` 模式仅在需要时才加载 `@parcel/watcher`，以便在无法加载 `@parcel/watcher` 时，一次性构建和 `--watch --poll` 仍可正常工作（[#20325](https://github.com/tailwindlabs/tailwindcss/pull/20325)）
+- 使用明确的平台字体代替 `system-ui` 和 `ui-sans-serif`，使 CJK 文本在 Windows 上遵循页面的 `lang` 属性（[#20318](https://github.com/tailwindlabs/tailwindcss/pull/20318)）
+- 防止从子目录运行 `@tailwindcss/upgrade` 时改写被忽略的文件（[#20329](https://github.com/tailwindlabs/tailwindcss/pull/20329)）
+- 当后续 `@source` 规则指向父目录中的文件时，确保先前指向嵌套文件的 `@source` 规则仍会被扫描（[#20335](https://github.com/tailwindlabs/tailwindcss/pull/20335)）
+- 防止 `@tailwindcss/vite` 在被扫描文件已由 Vite 处理但尚未作为模块加载时触发整页刷新（[#20336](https://github.com/tailwindlabs/tailwindcss/pull/20336)）
+
+---
+
+### 以下更早版本的更新记录保留英文原文
 
 ## [4.3.2] - 2026-06-26
 
