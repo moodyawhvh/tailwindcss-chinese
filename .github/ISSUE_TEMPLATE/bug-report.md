@@ -1,39 +1,39 @@
 ---
-name: Bug report
-about: If you've already asked for help with a problem and confirmed something is broken with Tailwind CSS itself, create a bug report.
+name: Bug 报告
+about: 如果你已经就某个问题寻求过帮助，并确认是 Tailwind CSS 本身出了问题，请创建一份 Bug 报告。
 title: ''
 labels: ''
 assignees: ''
 ---
 
-<!-- Please provide all of the information requested below. We're a small team and without all of this information it's not possible for us to help and your bug report will be closed. -->
+<!-- 请完整提供以下要求的所有信息。我们是一个小团队，如果缺少这些信息，我们将无法提供帮助，你的 Bug 报告将被关闭。 -->
 
-**What version of Tailwind CSS are you using?**
+**你使用的是哪个版本的 Tailwind CSS？**
 
-For example: v4.0.6
+例如：v4.0.6
 
-**What build tool (or framework if it abstracts the build tool) are you using?**
+**你使用的是哪个构建工具（如果框架对构建工具做了封装，请填写框架名称）？**
 
-For example: postcss-cli 11.0.0, Next.js 15.1.7, Vite 6.1.0
+例如：postcss-cli 11.0.0、Next.js 15.1.7、Vite 6.1.0
 
-**What version of Node.js are you using?**
+**你使用的是哪个版本的 Node.js？**
 
-For example: v20.0.0
+例如：v20.0.0
 
-**What browser are you using?**
+**你使用的是哪个浏览器？**
 
-For example: Chrome, Safari, or N/A
+例如：Chrome、Safari，或不适用
 
-**What operating system are you using?**
+**你使用的是哪个操作系统？**
 
-For example: macOS, Windows
+例如：macOS、Windows
 
-**Reproduction URL**
+**复现链接**
 
-A Tailwind Play link or public GitHub repo that includes a minimal reproduction of the bug. **Please do not link to your actual project**, what we need instead is a _minimal_ reproduction in a fresh project without any unnecessary code. This means it doesn't matter if your real project is private/confidential, since we want a link to a separate, isolated reproduction anyways.
+请提供一个 Tailwind Play 链接或公开的 GitHub 仓库，其中包含该 Bug 的最小化复现。**请不要直接链接你的实际项目**，我们需要的是一个在全新项目中去除一切无关代码后的_最小化_复现。这意味着你的真实项目是否涉密无关紧要，因为我们本来就需要一个独立的、隔离的复现链接。
 
-A reproduction is **required** when filing an issue — any issue opened without a reproduction will be closed and you'll be asked to create a new issue that includes a reproduction. We're a small team and we can't keep up with the volume of issues we receive if we need to reproduce each issue from scratch ourselves.
+提交 Issue 时**必须**附带复现链接——任何没有复现的 Issue 都会被关闭，届时你需要重新创建一个附带复现的 Issue。我们是一个小团队，如果每个 Issue 都要我们亲自从零复现，根本处理不过来。
 
-**Describe your issue**
+**描述你遇到的问题**
 
-Describe the problem you're seeing, any important steps to reproduce and what behavior you expect instead.
+请描述你遇到的问题、复现该问题的重要步骤，以及你所期望的正确行为。

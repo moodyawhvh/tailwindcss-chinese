@@ -1,29 +1,24 @@
 <!--
+👋 感谢你有兴趣为 Tailwind 做贡献！
 
-👋 Hey, thanks for your interest in contributing to Tailwind!
+**在着手实现任何重大的新功能之前，请先与我们沟通确认。**
 
-**Please ask first before starting work on any significant new features.**
+投入大量时间和精力做出的新功能 PR 被拒绝，绝不是什么愉快的体验。为避免这种情况，我们要求贡献者在开发任何重大新功能之前，先创建一个 discussion 进行讨论。
 
-It's never a fun experience to have your pull request declined after investing a lot of time and effort into a new feature. To avoid this from happening, we request that contributors create a discussion to first discuss any significant new features.
-
-For more info, check out the contributing guide:
+更多信息请参阅贡献指南：
 
 https://github.com/tailwindlabs/tailwindcss/blob/main/.github/CONTRIBUTING.md
 
 -->
 
-## Summary
+## 概要
 
 <!--
-
-Provide a summary of the issue and the changes you're making. How does your change solve the problem?
-
+概述相关问题以及你所做的改动。你的改动是如何解决该问题的？
 -->
 
-## Test plan
+## 测试计划
 
 <!--
-
-Explain how you tested your changes. Include the exact commands that you used to verify the change works and include screenshots/screen recordings of the update behavior in the browser if applicable.
-
+说明你如何测试这些改动。请给出你用来验证改动生效的确切命令，如适用，请附上浏览器中更新行为的截图或录屏。
 -->
